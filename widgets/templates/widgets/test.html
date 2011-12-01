@@ -1,0 +1,31 @@
+{% load widget_tags %}
+
+<head>
+  <title>Widget Test</title>
+  <script type="text/javascript" src="{{ LIB_MEDIA_URL }}jquery-1.4.2/jquery-1.4.2.min.js"></script>
+  {% include "widgets/head.html" %}
+</head>
+
+<body>
+  <p>Hello, This is a test widget page.</p>
+
+  {% widget countries.gidgits.radar_chart.RadarChartWidget --country 'AF' --structure-key 'lre_2011_nav' -N 'lre_legal_and_regulatory_environment_2011' -a %}
+
+  <p>Yay, graphs!</p>
+
+  {% widget indices_ng.gidgits.index_scatter.IndexScatterWidget --country-group 'LRE Atlas 2011' -X 'gr_global_risks_2011' -Y 'pr_dynamic_political_risk_2011' %}
+
+
+  <p>Includes?</p>
+  {% with "widgets/test_inclusion.html" as tpl %}
+  {% include tpl %}
+  {% endwith %}
+
+  {{ widgets }}
+<script>
+    {{ widgets.script }}
+    $(function () {
+        {{ widgets.init_script }}
+    });
+</script>
+</body>

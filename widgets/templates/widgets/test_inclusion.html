@@ -1,0 +1,9 @@
+{% load widget_tags %}
+<div style="border:solid 1px black">
+  <p>I've been included into another template..</p>
+
+  {% widget countries.gidgits.radar_chart.RadarChartWidget --country 'AF' --structure-key 'lre_2011_nav' -N 'lre_legal_and_regulatory_environment_2011' -a %}
+
+  <p>Masp?</p>
+  {% widget maps_ng.gidgits.world_map.WorldMapWidget --view-map "energy_security_short_term_2011" --legend as energy_map %}
+</div>

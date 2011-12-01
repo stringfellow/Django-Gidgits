@@ -1,0 +1,13 @@
+{% extends "widgets/test/extenderC.html" %}
+{% load widget_tags %}
+
+
+{% block cblock %}
+{% block dblock %}
+{% for i in "123"|make_list %}
+{% with "dblockD"|add:i as dblockD %}
+{% widget widgets.base.WidgetBase as dblockD %}
+{% endwith %}
+{% endfor %}
+{% endblock %}
+{% endblock %}

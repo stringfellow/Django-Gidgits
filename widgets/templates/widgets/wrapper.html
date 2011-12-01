@@ -1,0 +1,45 @@
+<div class="{{ classname }} widget" id="{{ uid }}">{% if widget_debug %}
+    <div id="{{ uid }}_DEBUG" class="debug">
+        <button class="debug {{ uid }}_debug_showhide" id="{{ uid }}_debug_show" onclick="$('.{{ uid }}_debug_showhide').toggle(); return false;">Show debug info</button>
+        <button class="debug {{ uid }}_debug_showhide" id="{{ uid }}_debug_hide" onclick="$('.{{ uid }}_debug_showhide').toggle(); return false;" style="display: none;">Hide debug info</button>
+        <div class="{{ uid }}_debug_showhide" style="display: none;">
+            <table class="widget_debug_table">
+                <tr>
+                    <th>File:</th><td>{{ widget_file }}</td>
+                </tr>
+                <tr>
+                    <th>Class:</th>
+                    <td class="widget_qualified_classname">{{ qualified_classname }}</td>
+                </tr>
+                <tr>
+                    <th>Template:</th><td>{{ widget_template }}</td>
+                </tr>
+                <tr>
+                    <th>JS:</th><td>{{ js }}</td>
+                </tr>
+                <tr>
+                    <th>CSS:</th><td>{{ css }}</td>
+                </tr>
+                <tr>
+                    <th>Query string:</th>
+                    <td class="widget_query_string">{{ query_string }}</td>
+                </tr>
+                <tr>
+                    <th>Template tag:</th>
+                    <td class="widget_tag_string">{% templatetag openblock %} widget {{ qualified_classname }} {{ tag_string }}{% templatetag closeblock %}</td>
+                </tr>
+                <tr>
+                    <th>UID:</th><td>{{ uid }}</td>
+                </tr>
+            </table>
+            <button class="debug" onclick="window.open('{% url widgets_style qualified_classname %}?{{ query_string }}', '_newtab');">Style me</button>
+        </div>
+    </div>
+{{ rendered_widget }}
+{% else %}{% spaceless %}
+{{ rendered_widget }}
+{% endspaceless %}
+{% endif %}
+{% block widget_extra %}
+{% endblock %}
+</div>

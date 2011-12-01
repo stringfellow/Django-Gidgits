@@ -1,0 +1,23 @@
+{% load widget_tags %}
+<?xml version="1.0" encoding="OUTPUT_ENCODING" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" 
+			content="text/html; charset=OUTPUT_ENCODING" />
+	</head>
+	<body>
+        {% block ablock %}
+            {% widget widgets.base.WidgetBase as "ablockA" %}
+        {% endblock %}
+        {% block bblock %}
+        {% endblock %}
+        {% block cblock %}
+            {% widget widgets.base.WidgetBase as "cblockA" %}
+        {% endblock %}
+	</body>
+</html>
+
+

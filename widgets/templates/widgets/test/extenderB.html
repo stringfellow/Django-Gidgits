@@ -1,0 +1,12 @@
+{% extends "widgets/test/extenderA.html" %}
+{% load widget_tags %}
+
+{% block ablock %}
+{{ block.super }}
+{% widget widgets.base.WidgetBase as "ablockB" %}
+{% endblock %}
+
+
+{% block bblock %}
+{% widget widgets.base.WidgetBase as "bblockB" %}
+{% endblock %}
