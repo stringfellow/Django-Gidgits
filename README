@@ -1,3 +1,13 @@
 Django Gidgits (widgets)!
 
+Quite handy for known data outputs (like tables, pies, graphs etc) that you
+want to include in a template but don't want to add to the context of the view
+in which the template is rendered. This just handles it all, meaning all the
+code is in one place and you just modify the render_to_response and a couple of
+other bits and it all 'just works' - pulls in CSS, JS etc.
 
+Docs need a few fixes... they are a little out of date.
+
+Notably, by convention, if including JS that needs to be fired after render, we
+use a custom trigger ('widgetsReady') that is bound using $.one so that it only
+fires once (multiple widgets on the page can cause problems otherwise).
